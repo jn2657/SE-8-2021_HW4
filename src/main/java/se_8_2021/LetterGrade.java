@@ -1,5 +1,9 @@
 package se_8_2021;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class LetterGrade {
 
   public static char getGrade(int score) {
@@ -18,4 +22,20 @@ public class LetterGrade {
     grade ='F';
     return grade;
   }
+
+  public static void main(String[] args) {
+    System.out.print("Enter the score = ");
+    try {
+    InputStreamReader isr = new InputStreamReader(System.in);
+    BufferedReader br = new BufferedReader(isr);
+    int score = Integer.parseInt(br.readLine());
+     char grade = getGrade(score);
+     System.out.println("The grade of " + score + " is " + grade);
+    } catch (NumberFormatException ex) {
+      System.out.println("Not an integer!");
+    } catch (IOException e) {
+      e.printStackTrace();
+    } 
+    }
+    
 }
